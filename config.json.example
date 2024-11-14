@@ -3,6 +3,7 @@
     "Drago_url": "http://127.0.0.1:7272",
     "area_ids": ["all"],
     "sleep_time": 900,
-    "rescan_window_minutes": 120
+    "rescan_window_minutes": 120,
+    "discord_webhook_url": "https://discord.com/api/webhooks/your_webhook_id",
     "rescan_community_day": false
 }
