@@ -31,8 +31,8 @@ def fetch_and_update_events():
         local_events = load_existing_events()
         if not isinstance(local_events, list):
             logger.error("Local events data is missing or corrupted. Initializing with an empty list.")
-
-        local_events = []
+            local_events = []
+            
         now = datetime.utcnow().replace(tzinfo=timezone.utc)
 
         new_events = []
