@@ -21,6 +21,7 @@ SLEEP_TIME = config['sleep_time']
 RESCAN_WINDOW_MINUTES = config['rescan_window_minutes']
 DISCORD_WEBHOOK_URL = config['discord_webhook_url']
 rescan_community_day = config.get('rescan_community_day', True)
+skip_early_rescan = config.get('skip_early_rescan', True)
 
 def fetch_and_update_events():
     try:
@@ -117,6 +118,10 @@ def check_and_trigger_rescan():
                 if "Community Day" in event['name'] and not rescan_community_day:
                     logger.info(f"Skipping rescan for '{event['name']}' due to Community Day setting.")
                     continue
+
+                if start_time.hour < 8 and skip_early_rescan:
+                    logger.info(f"Skipping rescan for '{event['name']}' due to early start setting.")
+                    continue                   
 
                 logger.info(f"Event '{event['name']}' started recently. Triggering rescan.")
                 start_rescan(event)

@@ -13,6 +13,7 @@ Notifications can also be sent to a Discord webhook for new events and rescans.
    - **sleep_time**: Sleep in seconds between fetching and checking events
    - **rescan_window_minutes:** Set timeframe in minutes in which a event is triggering a restart, Should be at least double the sleep time
    - **discord_webhook_url:** Channel in which updates should be posted
+   - **skip_early_rescan:** Skips a rescan if the starttime is before 8am
 
 2. **Install required packages:**
 
